@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이로써 아노라 표지 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mm: 3px;               /* 1mm = 3px 축척 */
+    --night:#1C2433; --night-deep:#121826;
+    --lamp:#E9C77B; --lamp-core:#F6E7C1;
+    --gold:#B8862F; --red:#7A2E2A; --ink:#F3EDE1;
+    --page:#EDEAE4; --text:#2A2F36;
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --page:#1a1a1c; --text:#e6e3dd; } }
+  :root[data-theme="dark"]{ --page:#1a1a1c; --text:#e6e3dd; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--page);color:var(--text);font-family:"Noto Serif KR",serif;padding:32px 16px 48px}
+  h1.page-title{font-size:18px;font-weight:600;margin-bottom:4px}
+  p.note{font-size:13px;opacity:.75;margin-bottom:28px;max-width:960px;line-height:1.6}
+  .label{font-size:12px;letter-spacing:.08em;opacity:.7;margin:0 0 8px}
+  section{margin-bottom:44px}
+  .scroll{overflow-x:auto;max-width:100%}
+
+  /* ---------- 공통 표지 면 ---------- */
+  .face{
+    position:relative;overflow:hidden;
+    width:calc(152*var(--mm));height:calc(225*var(--mm));
+    background:
+      radial-gradient(120% 60% at 50% 72%, #26304a 0%, var(--night) 55%, var(--night-deep) 100%);
+    color:var(--ink);font-family:"Gowun Batang",serif;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+  }
+  .grain{position:absolute;inset:0;opacity:.08;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.6) .6px, transparent .7px);
+    background-size:3px 3px;}
+
+  /* ---------- 앞표지 ---------- */
+  .front .title{
+    position:absolute;left:0;right:0;top:calc(30*var(--mm));
+    text-align:center;font-weight:700;font-size:calc(15.5*var(--mm));
+    letter-spacing:.06em;line-height:1;color:var(--ink);
+  }
+  .front .subtitle{
+    position:absolute;left:0;right:0;top:calc(52*var(--mm));
+    text-align:center;font-family:"Noto Serif KR",serif;font-weight:300;
+    font-size:calc(3.6*var(--mm));letter-spacing:.08em;color:#D9D2C3;
+  }
+  /* 문틀 */
+  .door{
+    position:absolute;left:50%;transform:translateX(-50%);
+    bottom:calc(46*var(--mm));
+    width:calc(46*var(--mm));height:calc(84*var(--mm));
+  }
+  .door .glow{
+    position:absolute;left:-60%;right:-60%;top:-20%;bottom:-40%;
+    background:radial-gradient(50% 45% at 50% 55%, rgba(233,199,123,.35) 0%, rgba(233,199,123,.08) 55%, transparent 75%);
+  }
+  .door .opening{
+    position:absolute;inset:calc(2.2*var(--mm)) calc(2.2*var(--mm)) 0;
+    background:linear-gradient(180deg, var(--lamp-core) 0%, var(--lamp) 60%, #C9A25A 100%);
+    box-shadow:0 0 calc(10*var(--mm)) rgba(246,231,193,.55);
+  }
+  .door .leaf{ /* 반쯤 열린 문짝 */
+    position:absolute;top:calc(2.2*var(--mm));bottom:0;right:calc(2.2*var(--mm));
+    width:58%;background:linear-gradient(90deg,#2a2f3d,#1a1f2b);
+    transform-origin:right center;transform:perspective(400px) rotateY(-28deg);
+    box-shadow:-2px 0 6px rgba(0,0,0,.4);
+  }
+  .door .frame{
+    position:absolute;inset:0;border:calc(2.2*var(--mm)) solid var(--gold);border-bottom:none;
+    filter:drop-shadow(0 0 2px rgba(184,134,47,.5));
+  }
+  .door .lintel-red{
+    position:absolute;left:calc(-1*var(--mm));right:calc(-1*var(--mm));top:calc(.7*var(--mm));
+    height:calc(1.1*var(--mm));background:var(--red);
+  }
+  .floor{
+    position:absolute;left:0;right:0;bottom:calc(46*var(--mm));height:1px;
+    background:linear-gradient(90deg,transparent, rgba(233,199,123,.45) 30%, rgba(233,199,123,.45) 70%, transparent);
+  }
+  .floor-light{ /* 바닥에 쏟아진 빛 */
+    position:absolute;left:50%;transform:translateX(-50%);
+    bottom:calc(30*var(--mm));width:calc(70*var(--mm));height:calc(16*var(--mm));
+    background:radial-gradient(50% 100% at 50% 0%, rgba(233,199,123,.30), transparent 70%);
+  }
+  .front .author{
+    position:absolute;left:0;right:0;bottom:calc(20*var(--mm));
+    text-align:center;font-size:calc(4.2*var(--mm));letter-spacing:.18em;color:var(--ink);
+  }
+  .front .publisher{
+    position:absolute;left:0;right:0;bottom:calc(9*var(--mm));
+    text-align:center;font-family:"Noto Serif KR",serif;font-weight:300;
+    font-size:calc(2.8*var(--mm));letter-spacing:.2em;color:#A9A08E;
+  }
+
+  /* ---------- 펼침(뒤표지 · 책등 · 앞표지) ---------- */
+  .spread{display:flex;width:max-content}
+  .spread .face{box-shadow:none}
+  .spread-wrap{display:inline-block;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .spine{
+    width:calc(13*var(--mm));height:calc(225*var(--mm));position:relative;
+    background:linear-gradient(90deg,var(--night-deep),var(--night) 40%,var(--night) 60%,var(--night-deep));
+    color:var(--ink);font-family:"Gowun Batang",serif;
+    border-left:1px dashed rgba(255,255,255,.18);border-right:1px dashed rgba(255,255,255,.18);
+  }
+  .spine .s-title{
+    position:absolute;top:calc(16*var(--mm));left:50%;transform:translateX(-50%);
+    writing-mode:vertical-rl;font-weight:700;font-size:calc(4.6*var(--mm));letter-spacing:.2em;
+  }
+  .spine .s-author{
+    position:absolute;top:calc(118*var(--mm));left:50%;transform:translateX(-50%);
+    writing-mode:vertical-rl;font-size:calc(3.2*var(--mm));letter-spacing:.3em;color:#D9D2C3;
+  }
+  .spine .s-mark{
+    position:absolute;bottom:calc(10*var(--mm));left:50%;transform:translateX(-50%);
+    width:calc(7*var(--mm));height:calc(7*var(--mm));border:1px solid var(--gold);
+    display:grid;place-items:center;font-size:calc(1.9*var(--mm));color:var(--gold);
+    font-family:"Noto Serif KR",serif;
+  }
+  .spine .s-line{position:absolute;top:calc(10*var(--mm));left:25%;right:25%;height:1px;background:var(--gold)}
+
+  .back{background:linear-gradient(180deg,var(--night) 0%, var(--night-deep) 100%)}
+  .back .copy{
+    position:absolute;left:calc(17*var(--mm));right:calc(17*var(--mm));top:calc(22*var(--mm));
+    font-family:"Noto Serif KR",serif;font-weight:400;color:#E6DFD1;
+    font-size:calc(3.15*var(--mm));line-height:1.85;word-break:keep-all;
+  }
+  .back .q{font-family:"Gowun Batang",serif;font-size:calc(5*var(--mm));line-height:1.5;color:var(--ink);margin-bottom:calc(8*var(--mm))}
+  .back .q span{display:block}
+  .back .q span + span{color:var(--lamp)}
+  .back .copy p{margin-bottom:calc(4.5*var(--mm))}
+  .back .verse{
+    margin-top:calc(7*var(--mm));padding-left:calc(4*var(--mm));border-left:1px solid var(--gold);
+    font-family:"Gowun Batang",serif;color:var(--lamp-core);font-size:calc(3.3*var(--mm));line-height:1.7;
+  }
+  .back .verse small{display:block;color:#B4AB98;font-size:calc(2.6*var(--mm));margin-top:4px}
+  .back .placeholder{
+    position:absolute;left:calc(17*var(--mm));bottom:calc(46*var(--mm));
+    font-size:calc(2.6*var(--mm));color:#8E8676;border:1px dashed #5b5547;padding:4px 8px;
+    font-family:"Noto Serif KR",serif;
+  }
+  .back .barcode{
+    position:absolute;right:calc(14*var(--mm));bottom:calc(13*var(--mm));
+    width:calc(50*var(--mm));height:calc(30*var(--mm));background:#fff;color:#333;
+    display:grid;place-items:center;text-align:center;font-family:"Noto Serif KR",serif;
+    font-size:calc(2.5*var(--mm));line-height:1.5;
+  }
+  .back .price{
+    position:absolute;left:calc(17*var(--mm));bottom:calc(14*var(--mm));
+    font-family:"Noto Serif KR",serif;font-size:calc(2.7*var(--mm));color:#B4AB98;line-height:1.7;
+  }
+  .dims{font-size:12px;opacity:.7;margin-top:8px}
+</style>
+</head>
+<body>
+  <h1 class="page-title">『이로써 아노라』 표지 시안 — 1안 「밤의 문설주」</h1>
+  <p class="note">신국판 152×225mm, 책등 약 13mm(240쪽·미색 모조 80g 추정). 그림은 CSS로 그린 자리표시 일러스트이며, 출판사명·바코드·정가·추천사 자리는 비워 두었다. 뒤표지 문안은 원고의 뒤표지 글 그대로다.</p>
+
+  <section>
+    <p class="label">① 앞표지</p>
+    <div class="face front" id="front">
+      <div class="grain"></div>
+      <div class="title">이로써 아노라</div>
+      <div class="subtitle">약속의 말씀 위에서 확인하는 나의 구원</div>
+      <div class="floor-light"></div>
+      <div class="door">
+        <div class="glow"></div>
+        <div class="opening"></div>
+        <div class="leaf"></div>
+        <div class="frame"></div>
+        <div class="lintel-red"></div>
+      </div>
+      <div class="floor"></div>
+      <div class="author">조성엽 지음</div>
+      <div class="publisher">[출판사]</div>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">② 펼침 — 뒤표지 · 책등 · 앞표지 (날개 제외)</p>
+    <div class="scroll">
+    <div class="spread-wrap">
+    <div class="spread" id="spread">
+      <div class="face back">
+        <div class="grain"></div>
+        <div class="copy">
+          <div class="q"><span>"구원받으셨습니까?"</span><span>"아마 되었겠지요."</span></div>
+          <p>오래 믿어 온 사람일수록 이 질문 앞에서 말끝이 흐려진다. 이 책은 요한일서가 세운 다섯 기준 — 빛 앞에 내놓음, 계명을 지킴, 형제를 사랑함, 육체로 오신 예수를 고백함, 주신 성령 — 앞에 정직하게 서게 하고, 그 살핌의 끝에서 확신이 느낌이 아니라 하나님의 약속 위에 선다는 것을 보여 준다.</p>
+          <p>기준에 못 미치는 날에도 하나님은 우리 마음보다 크시다. 감리교 전통의 '두 증거'와 '종의 믿음'으로, 확신을 강조하되 확신 없는 이를 정죄하지 않는 길을 걷는다.</p>
+          <div class="verse">"너희로 하여금 너희에게 영생이 있음을 알게 하려 함이라"<small>요한일서 5:13</small></div>
+        </div>
+        <div class="placeholder">[추천사 자리 — 받는 경우에만]</div>
+        <div class="price">기독교 | 신앙생활<br>값 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]원</div>
+        <div class="barcode">ISBN 바코드 자리<br>50 × 30mm</div>
+      </div>
+
+      <div class="spine">
+        <div class="s-line"></div>
+        <div class="s-title">이로써 아노라</div>
+        <div class="s-author">조성엽</div>
+        <div class="s-mark">로고</div>
+      </div>
+
+      <div class="face front">
+        <div class="grain"></div>
+        <div class="title">이로써 아노라</div>
+        <div class="subtitle">약속의 말씀 위에서 확인하는 나의 구원</div>
+        <div class="floor-light"></div>
+        <div class="door">
+          <div class="glow"></div>
+          <div class="opening"></div>
+          <div class="leaf"></div>
+          <div class="frame"></div>
+          <div class="lintel-red"></div>
+        </div>
+        <div class="floor"></div>
+        <div class="author">조성엽 지음</div>
+        <div class="publisher">[출판사]</div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <p class="dims">펼침 크기(날개 제외): 152 + 13 + 152 = 317 × 225mm · 날개 포함 시 497 × 225mm · 재단 여유 사방 3mm 별도</p>
+  </section>
+</body>
+</html>
