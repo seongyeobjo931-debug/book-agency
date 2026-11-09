@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이로써 아노라 표지 2안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@300;400;500;600;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--mm:3px;--page:#EDEAE4;--text:#2A2F36}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --page:#1a1a1c; --text:#e6e3dd; } }
+  :root[data-theme="dark"]{ --page:#1a1a1c; --text:#e6e3dd; }
+  body{background:var(--page);color:var(--text);font-family:"Noto Serif KR",serif;padding:32px 16px 48px}
+  h1.page-title{font-size:18px;font-weight:600;margin-bottom:4px}
+  p.note{font-size:13px;opacity:.75;margin-bottom:28px;max-width:960px;line-height:1.6}
+  .label{font-size:12px;letter-spacing:.08em;opacity:.7;margin:0 0 8px}
+  section{margin-bottom:44px}
+  .scroll{overflow-x:auto;max-width:100%}
+  .face{position:relative;overflow:hidden;width:calc(152*var(--mm));height:calc(225*var(--mm));box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .face > svg.art{position:absolute;inset:0;width:100%;height:100%}
+  .spread{display:flex;width:max-content}
+  .spread .face{box-shadow:none}
+  .spread-wrap{display:inline-block;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .spine{width:calc(12*var(--mm));height:calc(225*var(--mm));position:relative}
+  .spine .s-title{position:absolute;top:calc(16*var(--mm));left:50%;transform:translateX(-50%);writing-mode:vertical-rl;font-size:calc(4.6*var(--mm));letter-spacing:.2em}
+  .spine .s-author{position:absolute;top:calc(118*var(--mm));left:50%;transform:translateX(-50%);writing-mode:vertical-rl;font-size:calc(3.2*var(--mm));letter-spacing:.3em}
+  .spine .s-mark{position:absolute;bottom:calc(10*var(--mm));left:50%;transform:translateX(-50%);writing-mode:vertical-rl;letter-spacing:.15em;font-size:calc(2.6*var(--mm));font-family:"Noto Serif KR",serif}
+  .spine .s-line{position:absolute;top:calc(10*var(--mm));left:25%;right:25%;height:1px}
+  .back .copy{position:absolute;left:calc(17*var(--mm));right:calc(17*var(--mm));top:calc(20*var(--mm));font-family:"Noto Serif KR",serif;font-size:calc(3.15*var(--mm));line-height:1.85;word-break:keep-all}
+  .back .lead{font-family:"Gowun Batang",serif;font-size:calc(3.4*var(--mm));letter-spacing:.04em;margin-bottom:calc(6*var(--mm))}
+  .back .q{font-family:"Gowun Batang",serif;font-size:calc(5*var(--mm));line-height:1.5;margin-bottom:calc(7*var(--mm))}
+  .back .q span{display:block}
+  .back .copy p{margin-bottom:calc(4.5*var(--mm))}
+  .back .verse{margin-top:calc(6*var(--mm));padding-left:calc(4*var(--mm));font-family:"Gowun Batang",serif;font-size:calc(3.3*var(--mm));line-height:1.7}
+  .back .verse small{display:block;font-size:calc(2.6*var(--mm));margin-top:4px}
+  .back .placeholder{position:absolute;left:calc(17*var(--mm));bottom:calc(46*var(--mm));font-size:calc(2.6*var(--mm));padding:4px 8px;font-family:"Noto Serif KR",serif}
+  .back .barcode{position:absolute;right:calc(14*var(--mm));bottom:calc(13*var(--mm));width:calc(50*var(--mm));height:calc(30*var(--mm));background:#fff;color:#333;display:grid;place-items:center;text-align:center;font-family:"Noto Serif KR",serif;font-size:calc(2.5*var(--mm));line-height:1.5;border:1px solid rgba(0,0,0,.08)}
+  .back .price{position:absolute;left:calc(17*var(--mm));bottom:calc(14*var(--mm));font-family:"Noto Serif KR",serif;font-size:calc(2.7*var(--mm));line-height:1.7}
+  .dims{font-size:12px;opacity:.7;margin-top:8px}
+
+  .front .title{position:absolute;left:0;right:0;top:calc(32*var(--mm));text-align:center;font-family:"Noto Serif KR",serif;font-weight:500;font-size:calc(14.5*var(--mm));letter-spacing:.06em;line-height:1;color:#2A2F36}
+  .front .subtitle{position:absolute;left:0;right:0;top:calc(53*var(--mm));text-align:center;font-family:"Noto Serif KR",serif;font-weight:400;font-size:calc(3.6*var(--mm));letter-spacing:.08em;color:#4A505A}
+  .front .author{position:absolute;left:0;right:0;bottom:calc(16*var(--mm));text-align:center;font-family:"Gowun Batang",serif;font-size:calc(4.2*var(--mm));letter-spacing:.18em;color:#2A2F36}
+  .front .publisher{position:absolute;left:0;right:0;bottom:calc(8*var(--mm));text-align:center;font-family:"Noto Serif KR",serif;font-size:calc(2.8*var(--mm));letter-spacing:.2em;color:#5E564B}
+  .back{background:linear-gradient(180deg,#C2C8CD 0%,#D8D3CB 55%,#E6D7C6 100%);color:#2A2F36}
+  .back .lead{color:#A44D22}
+  .back .q span + span{color:#B0572A}
+  .back .verse{border-left:1px solid #D9692E;color:#2A2F36}
+  .back .verse small{color:#6B6458}
+  .back .placeholder{color:#6B6458;border:1px dashed #9C9283}
+  .back .price{color:#4A505A}
+  .spine{background:linear-gradient(180deg,#B9C3CC 0%,#D3CFC7 60%,#C9B9A3 100%);color:#2A2F36;border-left:1px dashed rgba(0,0,0,.15);border-right:1px dashed rgba(0,0,0,.15)}
+  .spine .s-title{font-family:"Noto Serif KR",serif;font-weight:600}
+  .spine .s-author{color:#4A505A;font-family:"Gowun Batang",serif}
+  .spine .s-mark{color:#A44D22}
+  .spine .s-line{background:#D9692E}
+</style>
+</head>
+<body>
+  <h1 class="page-title">『이로써 아노라』 표지 시안 — 2안 「숯불 곁 새벽」</h1>
+  <p class="note">신국판 152×225mm, 책등 약 12mm(224쪽 추정). 9장 디베랴 바닷가 — 세 번 부인한 베드로를 다시 부르신 숯불의 새벽. 그림은 SVG로 그린 자리표시 일러스트이며 실제 표지는 수채 일러스트 의뢰를 전제로 한다. 바코드·정가·추천사 자리는 비워 두었다. 펴낸 곳: 헤시키아 하우스.</p>
+
+  <section>
+    <p class="label">① 앞표지</p>
+    <div class="face front"><svg class="art" viewBox="0 0 152 225" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="skya" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A9B4BF"/><stop offset=".45" stop-color="#C6C9CB"/>
+      <stop offset=".85" stop-color="#E5D3BE"/><stop offset="1" stop-color="#EBD8C2"/>
+    </linearGradient>
+    <linearGradient id="seaa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B9B8B2"/><stop offset=".25" stop-color="#9AA6AF"/><stop offset="1" stop-color="#7F8E9B"/>
+    </linearGradient>
+    <linearGradient id="sanda" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CDBFAB"/><stop offset="1" stop-color="#B3A28B"/>
+    </linearGradient>
+    <radialGradient id="suna" cx=".5" cy="1" r=".6">
+      <stop offset="0" stop-color="#F6E3C8" stop-opacity=".9"/><stop offset="1" stop-color="#F6E3C8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="embera" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFD9A0"/><stop offset=".35" stop-color="#F08A3E"/><stop offset=".7" stop-color="#D9692E" stop-opacity=".45"/><stop offset="1" stop-color="#D9692E" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softa"><feGaussianBlur stdDeviation=".35"/></filter>
+  </defs>
+  <rect width="152" height="152" fill="url(#skya)"/>
+  <ellipse cx="76" cy="150" rx="70" ry="22" fill="url(#suna)"/>
+  <rect y="150" width="152" height="30" fill="url(#seaa)"/>
+  <g stroke="#E9DCCB" stroke-width=".25" opacity=".55">
+    <line x1="30" y1="153" x2="58" y2="153"/><line x1="84" y1="155.5" x2="120" y2="155.5"/>
+    <line x1="14" y1="160" x2="40" y2="160"/><line x1="64" y1="163" x2="98" y2="163"/>
+    <line x1="104" y1="169" x2="138" y2="169"/><line x1="22" y1="172" x2="52" y2="172"/>
+  </g>
+  <line x1="0" y1="150" x2="152" y2="150" stroke="#F3E6D3" stroke-width=".3" opacity=".8"/>
+  <path d="M0 180 Q40 176 76 178.5 T152 177 V225 H0Z" fill="url(#sanda)"/>
+  <path d="M0 180 Q40 176 76 178.5 T152 177" stroke="#EDE3D5" stroke-width=".35" fill="none" opacity=".8"/>
+  <g fill="#9C8B75" opacity=".55">
+    <ellipse cx="20" cy="196" rx="1.4" ry=".7"/><ellipse cx="44" cy="206" rx="1" ry=".5"/><ellipse cx="128" cy="200" rx="1.3" ry=".6"/>
+    <ellipse cx="110" cy="212" rx="1" ry=".5"/><ellipse cx="60" cy="214" rx="1.2" ry=".55"/><ellipse cx="86" cy="190" rx=".8" ry=".4"/>
+  </g>
+  <!-- 숯불 -->
+  <ellipse cx="96" cy="190" rx="13" ry="7" fill="url(#embera)"/>
+  <g filter="url(#softa)">
+    <ellipse cx="96" cy="190.6" rx="4.6" ry="1.4" fill="#3A2E28"/>
+    <ellipse cx="94.6" cy="189.8" rx="1.6" ry=".8" fill="#E8742F"/>
+    <ellipse cx="97.4" cy="190" rx="1.4" ry=".7" fill="#F29A4A"/>
+    <ellipse cx="96" cy="189.5" rx=".8" ry=".45" fill="#FFD08A"/>
+  </g>
+  <path d="M96 188.6 C94.6 184 98.2 181 96.4 176.5 C95 172.8 98 170 96.8 165.5" stroke="#F4ECE2" stroke-width=".35" fill="none" opacity=".55"/>
+</svg>
+      <div class="title">이로써 아노라</div>
+      <div class="subtitle">약속의 말씀 위에서 확인하는 나의 구원</div>
+      <div class="author">조성엽 지음</div>
+      <div class="publisher">헤시키아 하우스</div></div>
+  </section>
+
+  <section>
+    <p class="label">② 펼침 — 뒤표지 · 책등 · 앞표지 (날개 제외)</p>
+    <div class="scroll"><div class="spread-wrap"><div class="spread">
+      <div class="face back">
+        <div class="copy">
+          <div class="lead">느낌이 아니라 약속 위에서 아는 나의 구원</div>
+          <div class="q"><span>"구원받으셨습니까?"</span><span>"아마 되었겠지요."</span></div>
+          <p>오래 믿어 온 사람일수록 이 질문 앞에서 말끝이 흐려진다. 이 책은 요한일서가 세운 다섯 기준 — 빛 앞에 내놓음, 계명을 지킴, 형제를 사랑함, 육체로 오신 예수를 고백함, 주신 성령 — 앞에 정직하게 서게 하고, 그 살핌의 끝에서 확신이 느낌이 아니라 하나님의 약속 위에 선다는 것을 보여 준다.</p>
+          <p>기준에 못 미치는 날에도 하나님은 우리 마음보다 크시다. 감리교 전통의 '두 증거'와 '종의 믿음'으로, 확신을 강조하되 확신 없는 이를 정죄하지 않는 길을 걷는다.</p>
+          <div class="verse">"너희로 하여금 너희에게 영생이 있음을 알게 하려 함이라"<small>요한일서 5:13</small></div>
+        </div>
+        <div class="placeholder">[추천사 자리 — 받는 경우에만]</div>
+        <div class="price">기독교 | 신앙생활<br>값 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]원</div>
+        <div class="barcode">ISBN 바코드 자리<br>50 × 30mm</div>
+      </div>
+      <div class="spine">
+        <div class="s-line"></div>
+        <div class="s-title">이로써 아노라</div>
+        <div class="s-author">조성엽</div>
+        <div class="s-mark">헤시키아 하우스</div>
+      </div>
+      <div class="face front"><svg class="art" viewBox="0 0 152 225" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="skyb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A9B4BF"/><stop offset=".45" stop-color="#C6C9CB"/>
+      <stop offset=".85" stop-color="#E5D3BE"/><stop offset="1" stop-color="#EBD8C2"/>
+    </linearGradient>
+    <linearGradient id="seab" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B9B8B2"/><stop offset=".25" stop-color="#9AA6AF"/><stop offset="1" stop-color="#7F8E9B"/>
+    </linearGradient>
+    <linearGradient id="sandb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CDBFAB"/><stop offset="1" stop-color="#B3A28B"/>
+    </linearGradient>
+    <radialGradient id="sunb" cx=".5" cy="1" r=".6">
+      <stop offset="0" stop-color="#F6E3C8" stop-opacity=".9"/><stop offset="1" stop-color="#F6E3C8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="emberb" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFD9A0"/><stop offset=".35" stop-color="#F08A3E"/><stop offset=".7" stop-color="#D9692E" stop-opacity=".45"/><stop offset="1" stop-color="#D9692E" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softb"><feGaussianBlur stdDeviation=".35"/></filter>
+  </defs>
+  <rect width="152" height="152" fill="url(#skyb)"/>
+  <ellipse cx="76" cy="150" rx="70" ry="22" fill="url(#sunb)"/>
+  <rect y="150" width="152" height="30" fill="url(#seab)"/>
+  <g stroke="#E9DCCB" stroke-width=".25" opacity=".55">
+    <line x1="30" y1="153" x2="58" y2="153"/><line x1="84" y1="155.5" x2="120" y2="155.5"/>
+    <line x1="14" y1="160" x2="40" y2="160"/><line x1="64" y1="163" x2="98" y2="163"/>
+    <line x1="104" y1="169" x2="138" y2="169"/><line x1="22" y1="172" x2="52" y2="172"/>
+  </g>
+  <line x1="0" y1="150" x2="152" y2="150" stroke="#F3E6D3" stroke-width=".3" opacity=".8"/>
+  <path d="M0 180 Q40 176 76 178.5 T152 177 V225 H0Z" fill="url(#sandb)"/>
+  <path d="M0 180 Q40 176 76 178.5 T152 177" stroke="#EDE3D5" stroke-width=".35" fill="none" opacity=".8"/>
+  <g fill="#9C8B75" opacity=".55">
+    <ellipse cx="20" cy="196" rx="1.4" ry=".7"/><ellipse cx="44" cy="206" rx="1" ry=".5"/><ellipse cx="128" cy="200" rx="1.3" ry=".6"/>
+    <ellipse cx="110" cy="212" rx="1" ry=".5"/><ellipse cx="60" cy="214" rx="1.2" ry=".55"/><ellipse cx="86" cy="190" rx=".8" ry=".4"/>
+  </g>
+  <!-- 숯불 -->
+  <ellipse cx="96" cy="190" rx="13" ry="7" fill="url(#emberb)"/>
+  <g filter="url(#softb)">
+    <ellipse cx="96" cy="190.6" rx="4.6" ry="1.4" fill="#3A2E28"/>
+    <ellipse cx="94.6" cy="189.8" rx="1.6" ry=".8" fill="#E8742F"/>
+    <ellipse cx="97.4" cy="190" rx="1.4" ry=".7" fill="#F29A4A"/>
+    <ellipse cx="96" cy="189.5" rx=".8" ry=".45" fill="#FFD08A"/>
+  </g>
+  <path d="M96 188.6 C94.6 184 98.2 181 96.4 176.5 C95 172.8 98 170 96.8 165.5" stroke="#F4ECE2" stroke-width=".35" fill="none" opacity=".55"/>
+</svg>
+      <div class="title">이로써 아노라</div>
+      <div class="subtitle">약속의 말씀 위에서 확인하는 나의 구원</div>
+      <div class="author">조성엽 지음</div>
+      <div class="publisher">헤시키아 하우스</div></div>
+    </div></div></div>
+    <p class="dims">펼침 크기(날개 제외): 152 + 12 + 152 = 316 × 225mm · 날개 포함 시 496 × 225mm · 재단 여유 사방 3mm 별도</p>
+  </section>
+</body>
+</html>
